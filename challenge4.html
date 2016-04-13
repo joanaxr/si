@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Challenge 4</title>
+    <style>
+  
+    #nameerrormsg {
+      display: none;
+    }
+    #addrerrormsg {
+      display: none;
+    }
+
+    .errormsg {
+      color: #FF0000;
+      font-style: bold;
+      font-family: arial, serif;
+      font-size: 20px;
+    }
+
+    </style>
+    
+    <script type="text/javascript">
+       function checkForm () {
+        document.getElementById("nameerrormsg").style.display = "none";
+        document.getElementById("addrerrormsg").style.display ="none";
+        var entire = document.getElementById("fullname").value;
+        var home = document.getElementById("streetaddr").value;
+        if ((entire == null || entire == "") && (home == null || home == "")) {
+          document.getElementById("nameerrormsg").style.display = "inline";
+          document.getElementById("addrerrormsg").style.display = "inline";
+          return false;
+        } else if (entire == null || entire == "") {
+          document.getElementById("nameerrormsg").style.display = "inline";
+          return false;
+        } else if (home == null || home == "") {
+          document.getElementById("addrerrormsg").style.display = "inline";
+          return false; 
+        } else {
+          return true;
+        }
+      }
+
+    </script>
+</head>
+<body>
+	<form  action="mailto:me@fakeemail.com" onsubmit="return checkForm();" name ="field">
+  <fieldset>
+
+    <legend>Personal details</legend>
+    <p>
+      <label>
+        Full name:
+        <input type="text" name="fullname" id="fullname">
+      </label>
+    </p>
+    <p class="errormsg" id="nameerrormsg">Please enter your name above</p>
+
+    <p>
+      <label>
+        Street Address:
+        <input type="text" name="streetaddr" id="streetaddr">
+      </label>
+    </p>
+    <p class="errormsg" id="addrerrormsg">Please enter your street address</p>
+
+  </fieldset>
+  <input type="submit" value="Submit it!"> 
+</form>
+</body>
+</html>
